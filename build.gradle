@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version ('9.3.1')
+}
+
+group = 'ru.aston'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    keycloakVersion = '26.5.0'
+    jakartaVersion = '3.1.0'
+    uaparserVersion = '1.6.1'
+    jbossVersion = '3.15.6.Final'
+}
+
+dependencies {
+    compileOnly("org.keycloak:keycloak-core:${keycloakVersion}")
+    compileOnly("org.keycloak:keycloak-services:${keycloakVersion}")
+    compileOnly("org.keycloak:keycloak-server-spi:${keycloakVersion}")
+    compileOnly("org.keycloak:keycloak-server-spi-private:${keycloakVersion}")
+    compileOnly("jakarta.ws.rs:jakarta.ws.rs-api:${jakartaVersion}")
+    implementation("com.github.ua-parser:uap-java:${uaparserVersion}")
+    implementation("org.jboss.resteasy:resteasy-jaxrs:${jbossVersion}")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.jar {
+    archiveBaseName.set("user-session-spi")
+    destinationDirectory.set(file("$rootDir/build/libs"))
+}
