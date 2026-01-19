@@ -1,11 +1,13 @@
 package ru.aston.spi.session.provider;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import org.keycloak.Config;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.services.resource.RealmResourceProvider;
 import org.keycloak.services.resource.RealmResourceProviderFactory;
 
+@ApplicationScoped
 public class CustomSessionResourceProviderFactory implements RealmResourceProviderFactory {
 
   public static final String ID = "custom-session-provider";

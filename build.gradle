@@ -11,7 +11,7 @@ repositories {
 }
 
 ext {
-    keycloakVersion = '26.5.0'
+    keycloakVersion = '26.2.4'
     jakartaVersion = '3.1.0'
     uaparserVersion = '1.6.1'
     jbossVersion = '3.15.6.Final'

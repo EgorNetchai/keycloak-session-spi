@@ -1,5 +1,6 @@
 package ru.aston.spi.session.authenticator;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Collections;
 import java.util.List;
 import org.keycloak.Config;
@@ -10,6 +11,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 
+@ApplicationScoped
 public class UserAgentAuthenticatorFactory implements AuthenticatorFactory {
 
   public static final String PROVIDER_ID = "user-agent-authenticator";
@@ -26,7 +28,7 @@ public class UserAgentAuthenticatorFactory implements AuthenticatorFactory {
 
   @Override
   public boolean isConfigurable() {
-    return true;
+    return false;
   }
 
   @Override
